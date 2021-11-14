@@ -36,10 +36,10 @@ contract JuiceboxNFT is ERC721Enumerable {
     string _memo
   ) external payable {
     // Get a reference to the Juicebox terminal being used for the project.
-    ITerminal _terminal = terminalDirectory.terminalOf(_recipient.projectId);
+    ITerminal _terminal = terminalDirectory.terminalOf(_projectId);
 
     // The project should be accepting funds.
-    require(_terminal != ITerminal(address(0)), 'Terminal::pay: TERM_0');
+    require(_terminal != ITerminal(address(0)), 'UNAVAILABLE');
 
     // Forward the funds to the project.
     _terminal.pay{value: msg.value}(
