@@ -26,14 +26,14 @@ contract JuiceboxNFT is ERC721Enumerable {
   }
 
   /**
-   * @param _tokenId Is the token to mint.
    * @param _to Is the address the token will be minted to.
+   * @param _tokenId Is the token to mint.
    * @param _beneficiary Is the address that will receive the project's token that result from forwarding funds.
    * @param _memo A memo to send along with the payment that'll get emitted in the Juicebox event.
    */
   function mint(
-    uint256 _tokenId,
     address _to,
+    uint256 _tokenId,
     address _benenficiary,
     string _memo
   ) external payable {
@@ -53,6 +53,6 @@ contract JuiceboxNFT is ERC721Enumerable {
     );
 
     // Mint the NFT
-    _safeMint(_to, tokenId);
+    _safeMint(_to, _tokenId);
   }
 }
